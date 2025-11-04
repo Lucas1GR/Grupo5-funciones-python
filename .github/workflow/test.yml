@@ -1,0 +1,25 @@
+name: Pruebas automáticas del grupo
+on:
+  push:
+    branches:
+      
+main
+'*' # Esto permite que se ejecute en cualquier rama (incluyendo ramas personales)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      
+name: Clonar el repositorio
+      uses: actions/checkout@v3
+name: Configurar Python
+    uses: actions/setup-python@v4
+    with:
+      python-version: '3.10'
+name: Instalar dependencias
+  run: |
+    pip install pytest # Instala el framework de pruebas
+name: Ejecutar pruebas
+run: |
+  pytest -v # Comando para ejecutar todas las pruebas
